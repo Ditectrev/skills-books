@@ -61,6 +61,29 @@ The title after `Summary:` is **character-identical** to the parent `##` heading
 
 SEO and HTML still contain leftover `Conclusion` headings (including `## Conclusion: Search Engine Optimization Course` / `## Conclusion: HyperText Markup Language (HTML) Course`). **Do not copy those headings.** Recap / 30-day-plan / “what done looks like” material still belongs in tools-heavy books so they do not cut off — put it under uniquely named `###` sections inside `## Common Challenges and Debugging Tips` or `## Additional Resources and Reading Materials`, and still close the parent `##` with `### Summary: {Exact Chapter Title}`.
 
+### 4. CodeSandboxes only on books that have code snippets
+
+The CodeSandbox how-to in this skill is required for books with runnable code. It is **forbidden** on books without code snippets.
+
+| Book | Has code snippets? | CodeSandboxes? |
+| --- | --- | --- |
+| HTML | Yes (fenced `html` / `css` / `js`) | **Required** — widgets, `codesandbox.svg`, footnotes, why-take item 6 |
+| A11Y | Yes | **Required** — same, plus optional A11Y sandbox scripts |
+| SEO | No | **Forbidden** |
+| AZ-900 | No (`plaintext` trees only) | **Forbidden** |
+
+**If the new book has code snippets** (HTML, A11Y, CSS, JS APIs, and similar): follow the [CodeSandboxes](#codesandboxes-hands-on-only) section in full. Add `images/codesandbox.svg` (root and slides), numbered Edit badges, `[^N]` footnotes, why-take item 6 with the exact sandbox count, and A11Y-style `scripts/` only when automating creation.
+
+**If the new book has no code snippets** (SEO, AZ-900, dashboards/tools, exam guides): do **not** add any of:
+
+- CodeSandbox widgets (`[![Edit NNN-…](images/codesandbox.svg)]`)
+- `images/codesandbox.svg` (root or `__presentation-slides/images/`)
+- sandbox footnotes (`[^N]` / `csb.app`)
+- why-take item 6 (`Tap2Play` CodeSandboxes)
+- sandbox scripts (`scripts/codesandbox.cjs`, `codesandbox.config.json`, `sandboxes-manifest.json`, `.env.example`, root `package.json` for sandboxes)
+
+SEO leftover `codesandbox.svg` inside `__presentation-slides/images/` is not a template — do not copy it. AZ-900 `plaintext` diagrams are not code snippets and do not get sandboxes.
+
 ## Source repos (copy, don't reinvent)
 
 | Flavor | Repo | Role |
@@ -73,9 +96,9 @@ SEO and HTML still contain leftover `Conclusion` headings (including `## Conclus
 
 Pick **one flavor** before writing anything:
 
-- **Tools-heavy book & course** if students practice in third-party tools, dashboards, or search products (SEO, analytics, ads). Matches **SEO**. No CodeSandboxes, no why-take item 6.
-- **Hands-on book & course** if the topic is a skill students practice in the browser (HTML, A11Y, CSS, JS APIs). Matches HTML + A11Y.
-- **Study Guide Book & Course** if the topic is a vendor exam (AZ-900 and similar). Matches AZ-900.
+- **Tools-heavy book & course** if students practice in third-party tools, dashboards, or search products (SEO, analytics, ads). Matches **SEO**. No code snippets → no CodeSandboxes (hard constraint 4).
+- **Hands-on book & course** if the topic is a skill students practice in the browser with **code snippets** (HTML, A11Y, CSS, JS APIs). Matches HTML + A11Y. CodeSandboxes required.
+- **Study Guide Book & Course** if the topic is a vendor exam (AZ-900 and similar). Matches AZ-900. No code snippets → no CodeSandboxes.
 
 When flavor conflicts with a hard constraint, keep the flavor’s layout and **apply the hard constraint**.
 
@@ -87,7 +110,7 @@ Use this skill when the user asks to:
 - Scaffold a repo named `Awesome-…-Book-Course-…`
 - Write or expand `README.md` chapters in the Ditectrev voice
 - Generate `__presentation-slides` from book headings
-- Add numbered CodeSandbox examples (`Tap2Play`) — hands-on only
+- Add numbered CodeSandbox examples (`Tap2Play`) — only on books that have code snippets (HTML/A11Y)
 - Add `__extra-resources` recording notes
 - Match GitHub description, Support block, Discord, Patreon, or release notes to existing books
 
@@ -133,7 +156,7 @@ Hands-on books **add** `images/codesandbox.svg` (root and slides `images/`). Han
     └── sandboxes-manifest.json
 ```
 
-Study guides and tools-heavy books do **not** add CodeSandbox scripts, root `codesandbox.svg`, or sandbox footnotes.
+Study guides and tools-heavy books have **no code snippets**, so they do **not** add CodeSandbox scripts, root `codesandbox.svg`, sandbox footnotes, why-take item 6, or CodeSandbox widgets (hard constraint 4).
 
 SEO still ships a leftover `codesandbox.svg` inside `__presentation-slides/images/` even though the book never uses it, plus a leftover `__presentation-slides/generate-slides.py` hardcoded to A11Y. **Do not copy either** into new books.
 
@@ -172,7 +195,7 @@ npm `package.json` `name` (A11Y): lowercase kebab of the repo, e.g. `awesome-a11
 - CodeSandbox org: `https://codesandbox.io/u/Ditectrev` (hands-on; community file may still list it)
 - `.github/FUNDING.yml`: set `patreon: Ditectrev`; leave other platforms commented as in the GitHub template (SEO/HTML/AZ-900 have this; A11Y currently omits it — **copy SEO**)
 
-Copy `images/discord.png`, `images/ebook.jpg`, and `__extra-resources/our-community-social-media.md` from an existing book. Copy `images/codesandbox.svg` only for hands-on. Create a new `images/promotional.png` for the topic.
+Copy `images/discord.png`, `images/ebook.jpg`, and `__extra-resources/our-community-social-media.md` from an existing book. Copy `images/codesandbox.svg` **only** for books with code snippets (HTML/A11Y). Create a new `images/promotional.png` for the topic.
 
 ### `.gitignore`
 
@@ -256,7 +279,7 @@ Copy this paragraph and swap only the topic sentence (`learn about SEO` / `learn
 
 Rules:
 
-- Item 6 exists **only** on hands-on books. `{N}` must equal the number of `[![Edit NNN-…](images/codesandbox.svg)]` links (HTML: 120; A11Y: 61). **SEO and study guides omit item 6.**
+- Item 6 exists **only** on books that have code snippets (HTML, A11Y). `{N}` must equal the number of `[![Edit NNN-…](images/codesandbox.svg)]` links (HTML: 120; A11Y: 61). **SEO and AZ-900 omit item 6** — they have no code snippets (hard constraint 4).
 - Tools-heavy (SEO) and HTML item 3 is a **nested outline** of chapters (3-space indent, colon parents, nested children, trailing semicolons). A11Y uses a shorter nested list. Study guides use a **flat alphabetical topic dump** (AZ-900) and omit item 6.
 - SEO’s teaser lists main chapters + `Additional Resources and Reading Materials` + `**Much More!**`. It does **not** list a Conclusion chapter — keep it that way.
 - Study guides say `Study Guide Book & Course` in items 5 and the heading.
@@ -429,6 +452,8 @@ Recurring labels: **What is it?**, **Practical Example:**, **Why are they import
 **Study guides:** exam prep + glossary — not CodeSandbox recap, not `## Conclusion`.
 
 ## CodeSandboxes (hands-on only)
+
+Applies **only** when the book has code snippets (HTML, A11Y). Skip this entire section for SEO and AZ-900 — see hard constraint 4. Do not strip this guidance from code books.
 
 Every playable example uses this **exact** triple, with a zero-padded sequential number shared by the Edit label, the footnote id, and (usually) the sandbox slug:
 
@@ -632,8 +657,8 @@ Work in this order. Do not start slides before the TOC is stable.
 4. **Clone slides:** `git clone https://github.com/Ditectrev/__presentation-slides` (keep the name). Delete any leftover `generate-slides.py`.
 5. **Write README front-matter** (H1 through Requirements) with TODO storefront URLs if needed.
 6. **Write the Table of Contents** as the contract (heading anchors only). Get chapter names approved if a human is in the loop. Include `Summary: {Chapter}` entries; **no** `Conclusion` entries.
-7. **Generate chapters** with the matching recipe. Keep heading text = TOC text. Apply hard constraints (tool links, no case studies, `Summary:` closers).
-8. **Hands-on only:** add numbered examples + CodeSandboxes; run A11Y-style scan/insert if scripts are present; set why-take count = sandbox count.
+7. **Generate chapters** with the matching recipe. Keep heading text = TOC text. Apply hard constraints (tool links, no case studies, `Summary:` closers, CodeSandboxes only if the book has code snippets).
+8. **Code-snippet books only:** add numbered examples + CodeSandboxes; run A11Y-style scan/insert if scripts are present; set why-take count = sandbox count. Skip entirely for SEO / AZ-900.
 9. **Generate slides** by walking the TOC into `index.html` markdown. Copy images into `__presentation-slides/images/`. Set `<title>` to the book title without 📚.
 10. **Extra resources** — community pair plus recording notes / media as needed.
 11. **Local check** — README TOC anchors (no `#conclusion` collisions); every named tool is linked in the body; `npm start` in slides; spot-check sandbox URLs if hands-on.
@@ -651,6 +676,7 @@ When extending an existing book: update TOC + body + slides together; never leav
 - [ ] Every `##` chapter ends with `### Summary: {Exact Chapter Title}` (title matches)
 - [ ] Zero headings whose text is or starts with `Conclusion`
 - [ ] TOC Summary hrefs are unique (`#summary-…`), not `#conclusion` / `#conclusion-1`
+- [ ] CodeSandboxes **only** if the book has code snippets (HTML/A11Y yes; SEO/AZ-900 no — no widgets, `codesandbox.svg`, footnotes, why-take item 6, or sandbox scripts)
 
 ### Repo / GitHub
 
@@ -662,8 +688,8 @@ When extending an existing book: update TOC + body + slides together; never leav
 - [ ] No root `LICENSE`
 - [ ] `__presentation-slides/` and `__extra-resources/` spellings (not AZ-900's `__extra-resourcers`)
 - [ ] `images/promotional.png`, `images/discord.png`, `images/ebook.jpg` present
-- [ ] Hands-on: `images/codesandbox.svg` in **both** `images/` and `__presentation-slides/images/`
-- [ ] Tools-heavy: no root `package.json` / sandbox scripts / `generate-slides.py`
+- [ ] Code-snippet books (HTML/A11Y): `images/codesandbox.svg` in **both** `images/` and `__presentation-slides/images/`
+- [ ] No-snippet books (SEO/AZ-900): no `codesandbox.svg`, no sandbox scripts, no root sandbox `package.json`; still no `generate-slides.py`
 
 ### README front-matter
 
@@ -684,7 +710,9 @@ When extending an existing book: update TOC + body + slides together; never leav
 - [ ] Figures use the three-row caption table
 - [ ] Official links are live; no leftover `TODO` in student-facing **body** unless the user asked for stubs (Support TODOs are OK)
 
-### CodeSandboxes (hands-on)
+### CodeSandboxes (code-snippet books only)
+
+Skip this checklist for SEO / AZ-900 / any book without code snippets.
 
 - [ ] Sequential `001…N` with matching `[^N]` footnotes and `last access` dates
 - [ ] Editor URL `codesandbox.io/p/sandbox/…` and preview `https://{id}.csb.app/`
@@ -711,7 +739,7 @@ When extending an existing book: update TOC + body + slides together; never leav
 ## Agent operating rules
 
 - Clone or read a source repo of the **same flavor** before writing. Prefer **SEO** for tools-heavy / general non-sandbox books, HTML for browser-code hands-on, A11Y for accessibility/WCAG, AZ-900 for exams.
-- **Hard constraints override source leftovers.** Skip SEO/HTML `Conclusion` headings, HTML case studies, SEO `generate-slides.py`, AZ-900 `__extra-resourcers`, and SEO leftover slides `codesandbox.svg`.
+- **Hard constraints override source leftovers.** Skip SEO/HTML `Conclusion` headings, HTML case studies, SEO `generate-slides.py`, AZ-900 `__extra-resourcers`, and SEO leftover slides `codesandbox.svg`. Do not add CodeSandboxes to SEO/AZ-900-style books just because HTML/A11Y have them.
 - Preserve Ditectrev marketing copy in the front-matter; do not "improve" it into generic GitHub README style.
 - If storefront/Udemy/YouTube IDs are unknown, keep the Support skeleton with SEO-style `TODO` URLs rather than deleting channels.
 - Do not restructure the book into multiple markdown files.

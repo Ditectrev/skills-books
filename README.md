@@ -4,6 +4,6 @@ Cursor skill for generating new **Ditectrev Awesome Book & Course** repositories
 
 Skill path: [`.cursor/skills/ditectrev-books/SKILL.md`](.cursor/skills/ditectrev-books/SKILL.md)
 
-Hard constraints (always): link every named tool, never include case studies, close chapters with `Summary: {Exact Chapter Title}` (never `Conclusion` headings).
+Hard constraints (always): link every named tool; never include case studies; close chapters with `Summary: {Exact Chapter Title}` (never `Conclusion` headings); CodeSandboxes only on books that have code snippets (HTML/A11Y yes; SEO/AZ-900 no).
 
 New books should use `__extra-resources` (not AZ-900’s misspelled `__extra-resourcers`). Tools-heavy books follow the SEO layout (no CodeSandboxes).
