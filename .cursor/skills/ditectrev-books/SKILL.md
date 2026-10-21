@@ -166,15 +166,15 @@ SEO still ships a leftover `codesandbox.svg` inside `__presentation-slides/image
 | --- | --- | --- | --- |
 | GitHub repo | `Awesome-SEO-Book-Course-Search-Engine-Optimization` | `Awesome-HTML-Book-Course-HyperText-Markup-Language-HTML` | `Awesome-Microsoft-Azure-AZ-900-Microsoft-Azure-Fundamentals-Study-Guide-Book-Course` |
 | Pattern | `Awesome-{Short}-Book-Course-{Expanded}` | `Awesome-{Short}-Book-Course-{Expanded}` | `Awesome-{Vendor}-{ExamCode}-{ExamName}-Study-Guide-Book-Course` |
-| H1 | `# 📚 Awesome SEO Book & Course: Search Engine Optimization` | `# 📚 Awesome HTML Book & Course: HyperText Markup Language (HTML)` | `# 📚 Awesome Microsoft Azure AZ-900 (Microsoft Azure Fundamentals) Study Guide Book & Course` |
-| GitHub description | `⭐ Awesome SEO Book & Course. Learn SEO online with pleasure.` (live SEO description is still unset — **set this** on new repos) | `⭐ Awesome HTML Book & Course with interactive CodeSandboxes. Learn HTML online with pleasure.` | `⛳️ PASS: Microsoft Azure AZ-900 (Microsoft Azure Fundamentals) by learning based on our Study Guide Book & Course.` |
+| H1 | `# 📚 Awesome SEO Book & Course: Search Engine Optimization (SEO)` | `# 📚 Awesome HTML Book & Course: HyperText Markup Language (HTML)` | `# 📚 Awesome Microsoft Azure AZ-900 (Microsoft Azure Fundamentals) Study Guide Book & Course` |
+| GitHub description | `⭐ Awesome SEO Book & Course. Learn SEO online with pleasure.` | `⭐ Awesome HTML Book & Course with interactive CodeSandboxes. Learn HTML online with pleasure.` | `⛳️ PASS: Microsoft Azure AZ-900 (Microsoft Azure Fundamentals) by learning based on our Study Guide Book & Course.` |
 | Default branch | `main` | `main` | `main` |
-| Homepage | shop or Udemy when the product exists; else leave empty until then | Udemy course URL or `https://shop.ditectrev.com/product/…` | shop product URL |
-| Topics | `ditectrev`, `awesome-list`, topic slugs (`awesome-seo`, `search-engine-optimization`) | `ditectrev`, `awesome-list` / `awesome`, topic keywords | `ditectrev`, `awesome-list`, `udemy-course`, exam slug (`az-900`, `az900`) |
+| Homepage | shop or Udemy when the product exists; else leave empty until then (live SEO homepage is still empty despite a shop URL — **set this** on new repos) | Udemy course URL or `https://shop.ditectrev.com/product/…` | shop product URL |
+| Topics | `ditectrev`, `awesome-list`, topic slugs (`awesome-seo`, `search-engine-optimization`) (live SEO currently omits `ditectrev` — **still set it**) | `ditectrev`, `awesome-list` / `awesome`, topic keywords | `ditectrev`, `awesome-list`, `udemy-course`, exam slug (`az-900`, `az900`) |
 | Root `LICENSE` | **None** (content is sold) | **None** | **None** |
 | Extra-resources folder | `__extra-resources` | `__extra-resources` | AZ-900 currently misspells `__extra-resourcers` — **use `__extra-resources` for new books** |
 
-H1 pattern for tools-heavy / hands-on: `# 📚 Awesome {SHORT} Book & Course: {Expanded Name}`.
+H1 pattern for tools-heavy / hands-on: `# 📚 Awesome {SHORT} Book & Course: {Expanded Name} ({SHORT})` (SEO recording added `(SEO)` to match HTML / A11Y).
 
 npm `package.json` `name` (A11Y): lowercase kebab of the repo, e.g. `awesome-a11y-book-course-web-accessibility-a11y`.
 
@@ -207,7 +207,7 @@ If added, name it exactly `.editorconfig` (HTML's copy has a hidden prefix — d
 
 ## README.md is the book
 
-There are **no** `chapters/` files. Typical size: SEO 4547 lines, HTML 4676, AZ-900 4850, A11Y 6525. Write the whole book into `README.md`.
+There are **no** `chapters/` files. Typical size: SEO ~3822 lines (after recording cuts), HTML 4676, AZ-900 4850, A11Y 6525. Write the whole book into `README.md`.
 
 ### Fixed front-matter order (do not reorder, do not skip)
 
@@ -232,7 +232,7 @@ Use these exact heading strings (swap only `{Topic}` / `Study Guide Book & Cours
 
 Keep the intro sentences identical. Fill product URLs. Channel order is fixed.
 
-Until storefront IDs exist, SEO uses these **exact TODO stubs** (keep every channel):
+Until storefront IDs exist, keep these **exact TODO stubs** (keep every channel, including Amazon). Channel order is fixed and matches live HTML / A11Y / AZ-900 / SEO:
 
 ```markdown
 ## ❣️ Support
@@ -242,6 +242,7 @@ There are many ways to support us; in exchange, you'll get this material in a pr
 - ❤️ [shop.ditectrev.com, in EPUB or PDF formats](https://shop.ditectrev.com/product/TODO),
 - ▶️ [Udemy, in an interactive video course format](https://www.udemy.com/course/TODO),
 - 🆓 [Shorter, but free, part of our Udemy course is available on YouTube](https://www.youtube.com/playlist?list=TODO),
+- 🖨️ [Amazon, printable physical book in paperback or hardcover (Kindle available, too)](https://www.amazon.com/dp/TODO),
 - 📚 [Google Play Books, in PDF format](https://play.google.com/store/books/details?id=TODO),
 - 🛍️ [Etsy, in PDF format](https://ditectrev.etsy.com/listing/TODO),
 - 🛒 [eBay, in PDF format](https://www.ebay.com/itm/TODO),
@@ -252,7 +253,7 @@ There are many ways to support us; in exchange, you'll get this material in a pr
 ⭐ Good ratings & reviews help us to survive. Please don't forget to leave a nice one when you purchase an item.
 ```
 
-If a storefront URL is unknown, keep the channel and leave `TODO` — do not drop channels. Replace `TODO` with real IDs when products ship.
+If a storefront URL is unknown, keep the channel and leave `TODO` — do not drop channels. Replace `TODO` with real IDs when products ship. Do **not** copy SEO’s temporary stand-ins (Udemy instructor profile instead of a course URL; Google Play author/collection page labeled “temporarily”). Those are recording leftovers until the product page exists.
 
 ### Unlike-any / community block
 
@@ -281,7 +282,7 @@ Rules:
 
 - Item 6 exists **only** on books that have code snippets (HTML, A11Y). `{N}` must equal the number of `[![Edit NNN-…](images/codesandbox.svg)]` links (HTML: 120; A11Y: 61). **SEO and AZ-900 omit item 6** — they have no code snippets (hard constraint 4).
 - Tools-heavy (SEO) and HTML item 3 is a **nested outline** of chapters (3-space indent, colon parents, nested children, trailing semicolons). A11Y uses a shorter nested list. Study guides use a **flat alphabetical topic dump** (AZ-900) and omit item 6.
-- SEO’s teaser lists main chapters + `Additional Resources and Reading Materials` + `**Much More!**`. It does **not** list a Conclusion chapter — keep it that way.
+- Teaser lists this book’s real chapters + `Additional Resources and Reading Materials` + `**Much More!**`. It does **not** list a Conclusion chapter. Live SEO also dropped Common Challenges from the teaser after that chapter was cut in recording — **keep Challenges in the teaser when the book has that chapter** (HTML does).
 - Study guides say `Study Guide Book & Course` in items 5 and the heading.
 
 ### Updates, contribution, audience, requirements
@@ -302,7 +303,7 @@ Rules:
 - Launch of the course.
 ```
 
-Patches after that use `v1.1.1` (A11Y: "Fix CodeSandbox first example link."). Duplicate `v1.1.0` for post-recording vs course launch is the existing convention — keep it. A brand-new tools-heavy book may ship with only `v1.0.0` (SEO did).
+Patches after that use `v1.1.1` (A11Y: "Fix CodeSandbox first example link."). Duplicate `v1.1.0` for post-recording vs course launch is the existing convention — keep it. New books may ship `v1.0.0` only, or stub both `v1.1.0` notes at launch with a TBD date (SEO used `December X, 2026`) until recording and the course actually ship.
 
 **Contribution** (SEO/HTML wording; use `#table-of-contents`):
 
@@ -445,6 +446,8 @@ Recurring labels: **What is it?**, **Practical Example:**, **Why are they import
   - `### Further Reading and Industry Publications`
   - `### Summary: Additional Resources and Reading Materials`
 
+Live SEO deleted `## SEO Analytics and Performance Tracking`, `## Common Challenges and Debugging Tips`, and most of the course-close body in `fix: last slides` (recording). **Do not copy that cut.** New tools-heavy books still close with Challenges (uniquely named recap sections — never a `Conclusion` heading) plus Additional Resources.
+
 **Hands-on HTML-like:** same Challenges + Additional Resources arc (no Conclusion heading). Link every tool/course/forum named.
 
 **A11Y-like:** operational chapters (Testing, Documentation) then `## Appendix A–D`. Each appendix ends with `### Summary: Appendix {X}: …`.
@@ -498,13 +501,13 @@ Then add **kebab-case** notes that match what was shown on camera:
 
 | Kind | Examples from the repos |
 | --- | --- |
-| Community only (valid) | SEO ships **only** the community pair until recording needs more |
+| Community only (valid) | SEO stayed **community-only through recording**; tools-heavy books may ship only this pair |
 | "During the recording I showed…" link lists | HTML `online-tutorials-guides.md`, `file-api.md`, `webrtc-api.md` |
 | Portal / tool walkthroughs with screenshots | AZ-900 `tco-calculator.md` + `tco1.png`…`tco8.png` |
 | Demo media used in examples | A11Y `sample-video.mp4`, `sample-video-en.vtt`, `t-rex-roar.mp3`, `chart-q1.png` |
 | PDF export of the same note | pair `foo.md` + `foo.pdf` when the note is used in recording; some HTML notes are PDF-only |
 
-Do not move these materials into `README.md`. Do not invent a docs site for them. Tools-heavy new books may ship community-only extras (SEO).
+Do not move these materials into `README.md`. Do not invent a docs site for them. Tools-heavy new books may ship community-only extras even after Udemy recording (SEO did — no extra topic notes or screenshots).
 
 ## Slides generation
 
@@ -580,7 +583,7 @@ Required config: theme **serif**, highlight **monokai**, `hash: true`, `slideNum
 
 Preview: `cd __presentation-slides && npm start` (gulp serve). Node `>=18`.
 
-SEO `<title>` example: `Awesome SEO Book & Course: Search Engine Optimization`.
+SEO `<title>` example: `Awesome SEO Book & Course: Search Engine Optimization (SEO)` (match the README H1 without 📚; live SEO slides may still omit `(SEO)` — do not copy that drift).
 
 ### Map README → slides (do this mechanically)
 
@@ -644,7 +647,7 @@ Horizontal separator is a line containing only `---`.
 
 - One idea per slide. Title-only openers are normal.
 - 4–8 fragment bullets max; split if more.
-- HTML deck ≈ 278 `---` separators; SEO ≈ 280; A11Y ≈ 212; AZ-900 ≈ 137. A new book should be in that range, not a 20-slide summary.
+- HTML deck ≈ 278 `---` separators; SEO ≈ 191 (recording trimmed a denser draft); A11Y ≈ 212; AZ-900 ≈ 137. A new book should be in that range, not a 20-slide summary.
 - Do not add Welcome/Discord/promotional image slides unless the user asks — none of the decks do.
 
 ## Repeatable workflow (new book)
@@ -694,7 +697,7 @@ When extending an existing book: update TOC + body + slides together; never leav
 ### README front-matter
 
 - [ ] H1 starts with `📚 Awesome`
-- [ ] Support has all seven channels in the fixed order (TODO stubs allowed)
+- [ ] Support has all eight channels in the fixed order, including Amazon after YouTube (TODO stubs allowed)
 - [ ] Discord CTA uses `images/discord.png` and `https://discord.gg/RFjtXKfJy3`
 - [ ] Why-take items 1, 2, 4, 5 match the template; item 3 lists this book's topics; item 6 only if sandboxes exist and the count is exact
 - [ ] Updates, contribution, audience (`👨‍🎓`), requirements (`🤩` / `0️⃣` / `✅`) present
@@ -739,9 +742,9 @@ Skip this checklist for SEO / AZ-900 / any book without code snippets.
 ## Agent operating rules
 
 - Clone or read a source repo of the **same flavor** before writing. Prefer **SEO** for tools-heavy / general non-sandbox books, HTML for browser-code hands-on, A11Y for accessibility/WCAG, AZ-900 for exams.
-- **Hard constraints override source leftovers.** Skip SEO/HTML `Conclusion` headings, HTML case studies, SEO `generate-slides.py`, AZ-900 `__extra-resourcers`, and SEO leftover slides `codesandbox.svg`. Do not add CodeSandboxes to SEO/AZ-900-style books just because HTML/A11Y have them.
+- **Hard constraints override source leftovers.** Skip SEO/HTML `Conclusion` headings, HTML case studies, SEO `generate-slides.py`, AZ-900 `__extra-resourcers`, and SEO leftover slides `codesandbox.svg`. Do not add CodeSandboxes to SEO/AZ-900-style books just because HTML/A11Y have them. Do not copy SEO recording leftovers: deleted Analytics / Challenges chapters, stripped front-matter trailing `:` / `.` (HTML/A11Y still keep them), Udemy instructor or Google Play author stand-in URLs, empty homepage, or missing `ditectrev` topic.
 - Preserve Ditectrev marketing copy in the front-matter; do not "improve" it into generic GitHub README style.
-- If storefront/Udemy/YouTube IDs are unknown, keep the Support skeleton with SEO-style `TODO` URLs rather than deleting channels.
+- If storefront/Udemy/YouTube/Amazon IDs are unknown, keep the Support skeleton with `TODO` URLs rather than deleting channels or substituting author/instructor/collection pages.
 - Do not restructure the book into multiple markdown files.
 - Do not replace reveal.js with another slide stack.
 - Do not add a root license or change `__presentation-slides` to a friendlier folder name.
